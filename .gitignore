@@ -1,0 +1,60 @@
+# Environment & Secrets
+.env
+*.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Database
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite3
+
+# Data (generated at runtime)
+data/uploads/
+
+# Reports (generated)
+reports/*.json
+reports/*.md
+
+# Logs
+*.log
+api_logs.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sln
+.DS_Store
+Thumbs.db
+
+# Node (frontend)
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# Cookies & sessions
+cookies.txt
+cookies*.txt
+
+# Internal drafts
+reddit_post_draft.md
+
+# Misc artifacts
+*.pdf
+*.xlsx
+*.xls
