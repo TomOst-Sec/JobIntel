@@ -1,0 +1,242 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════
+   JOBINTEL DESIGN SYSTEM — "Dark Intelligence Terminal"
+   Bloomberg meets considered beauty. Serious. Powerful. Trustworthy.
+   ═══════════════════════════════════════════════════════════════ */
+
+@layer base {
+  :root {
+    /* BACKGROUNDS */
+    --bg-void:     #030508;
+    --bg-deep:     #070c14;
+    --bg-surface:  #0b1220;
+    --bg-elevated: #101929;
+    --bg-overlay:  #162033;
+
+    /* PRIMARY — ELECTRIC CYAN */
+    --cyan:        #00d4ff;
+    --cyan-80:     rgba(0, 212, 255, 0.8);
+    --cyan-40:     rgba(0, 212, 255, 0.4);
+    --cyan-15:     rgba(0, 212, 255, 0.15);
+    --cyan-08:     rgba(0, 212, 255, 0.08);
+
+    /* SUCCESS / GROWTH — NEON GREEN */
+    --green:       #00e87a;
+    --green-80:    rgba(0, 232, 122, 0.8);
+    --green-15:    rgba(0, 232, 122, 0.15);
+    --green-08:    rgba(0, 232, 122, 0.08);
+
+    /* DANGER / GHOST / LAYOFF — SIGNAL RED */
+    --red:         #ff3355;
+    --red-80:      rgba(255, 51, 85, 0.8);
+    --red-15:      rgba(255, 51, 85, 0.15);
+    --red-08:      rgba(255, 51, 85, 0.08);
+
+    /* WARNING / SALARY / IPO — GOLD */
+    --gold:        #ffb800;
+    --gold-15:     rgba(255, 184, 0, 0.15);
+    --gold-08:     rgba(255, 184, 0, 0.08);
+
+    /* NEUTRAL ACCENT — PURPLE */
+    --purple:      #8b5cf6;
+    --purple-15:   rgba(139, 92, 246, 0.15);
+    --purple-08:   rgba(139, 92, 246, 0.08);
+
+    /* TEXT */
+    --text-primary:   #e8f0fe;
+    --text-secondary: #7090b0;
+    --text-muted:     #3a5070;
+    --text-inverse:   #030508;
+
+    /* BORDERS */
+    --border-subtle:  rgba(0, 212, 255, 0.08);
+    --border-default: rgba(0, 212, 255, 0.15);
+    --border-strong:  rgba(0, 212, 255, 0.30);
+    --border-active:  rgba(0, 212, 255, 0.60);
+
+    /* EFFECTS */
+    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255,255,255,0.03) inset;
+    --shadow-glow-cyan: 0 0 40px rgba(0, 212, 255, 0.15);
+    --shadow-glow-green: 0 0 40px rgba(0, 232, 122, 0.15);
+    --shadow-glow-red: 0 0 40px rgba(255, 51, 85, 0.15);
+    --shadow-glow-gold: 0 0 40px rgba(255, 184, 0, 0.15);
+  }
+}
+
+/* ── Base body ──────────────────────────────────────────── */
+body {
+  color: var(--text-primary);
+  background: var(--bg-deep);
+  font-family: 'DM Sans', 'Geist', system-ui, -apple-system, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Font utilities ──────────────────────────────────────── */
+.font-display {
+  font-family: 'DM Sans', 'Syne', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', 'Geist Mono', 'Fira Code', monospace;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--cyan-15);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyan-40);
+}
+
+/* ── Selection ──────────────────────────────────────────── */
+::selection {
+  background: var(--cyan-40);
+  color: white;
+}
+
+/* ── Prose override for dark theme ──────────────────────── */
+.prose-invert {
+  --tw-prose-body: #c0d0e0;
+  --tw-prose-headings: var(--text-primary);
+  --tw-prose-links: var(--cyan);
+  --tw-prose-bold: var(--text-primary);
+  --tw-prose-code: var(--cyan-80);
+}
+
+/* ── Card base ──────────────────────────────────────────── */
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  box-shadow: var(--shadow-card);
+  transition: all 0.2s ease;
+}
+.card:hover {
+  border-color: var(--border-default);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card), var(--shadow-glow-cyan);
+}
+
+/* ── Glass effect ─────────────────────────────────────── */
+.glass {
+  background: rgba(11, 18, 32, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+}
+
+/* ── Glow accents ─────────────────────────────────────── */
+.glow-cyan { box-shadow: var(--shadow-glow-cyan); }
+.glow-green { box-shadow: var(--shadow-glow-green); }
+.glow-red { box-shadow: var(--shadow-glow-red); }
+.glow-gold { box-shadow: var(--shadow-glow-gold); }
+
+/* ── Ghost score accent bar ───────────────────────────── */
+.ghost-bar-real { border-left: 3px solid var(--green); }
+.ghost-bar-verify { border-left: 3px solid var(--gold); }
+.ghost-bar-suspicious { border-left: 3px solid #ff8800; }
+.ghost-bar-ghost { border-left: 3px solid var(--red); }
+
+/* ── Animated shimmer loading ─────────────────────────── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, var(--bg-surface) 25%, var(--bg-elevated) 50%, var(--bg-surface) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* ── Count up number animation ────────────────────────── */
+@keyframes countPulse {
+  0% { color: var(--cyan); transform: scale(1.05); }
+  100% { color: var(--text-primary); transform: scale(1); }
+}
+.count-pulse {
+  animation: countPulse 0.4s ease-out;
+}
+
+/* ── Pulse animation for live indicators ──────────────── */
+@keyframes livePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.live-pulse {
+  animation: livePulse 2s ease-in-out infinite;
+}
+
+/* ── Subtle entrance animation ────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fadeUp 0.3s ease-out;
+}
+
+/* ── Grid background ──────────────────────────────────── */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ── Ambient glow spots ───────────────────────────────── */
+.ambient-glow::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.ambient-glow::after {
+  content: '';
+  position: absolute;
+  bottom: -10%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 232, 122, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Button press effect ──────────────────────────────── */
+.btn-press:active {
+  transform: scale(0.97);
+}
+
+/* ── Focus ring (accessibility) ───────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+/* ── Ticker scroll ────────────────────────────────────── */
+@keyframes tickerScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-scroll {
+  animation: tickerScroll 30s linear infinite;
+}
+.ticker-scroll:hover {
+  animation-play-state: paused;
+}
